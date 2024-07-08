@@ -115,4 +115,5 @@ export const EditProduct = () => {
     </div>
   )
 }
+export default EditProduct
 
