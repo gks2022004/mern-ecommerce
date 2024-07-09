@@ -6,6 +6,7 @@ import Admin from "./pages/Admin";
 import { EditProduct } from "./pages/EditProduct";
 import { DeleteProduct } from "./pages/DeleteProduct";
 import CreateProduct from "./pages/CreateProduct";
+import Home from "./pages/Home";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <>
     
      <Routes>
+      <Route path="/" element={<Home/>}/>
       <Route path="/admin/*" element={<ProtectedRoute>
       <AdminRoutes/>
       </ProtectedRoute>
