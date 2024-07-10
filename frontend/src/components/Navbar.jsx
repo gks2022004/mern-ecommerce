@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ThemeToggleButton from './ThemeToggleButton';
+import CartIcon from './CartIcon';
 
 const Navbar = () => {
   return (
@@ -25,6 +26,7 @@ const Navbar = () => {
         </ul>
     </div>
      <div className='navbar-end gap-12'>
+        <Link to="/cart"><CartIcon/></Link>
         <ThemeToggleButton/>
      </div>
 

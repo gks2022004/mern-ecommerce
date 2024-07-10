@@ -8,6 +8,7 @@ import { DeleteProduct } from "./pages/DeleteProduct";
 import CreateProduct from "./pages/CreateProduct";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import Cart from "./pages/Cart";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <Navbar/>
      <Routes>
       <Route path="/" element={<Home/>}/>
+      <Route path="/cart" element={<Cart/>}/>
       <Route path="/admin/*" element={<ProtectedRoute>
       <AdminRoutes/>
       </ProtectedRoute>

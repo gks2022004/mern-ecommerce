@@ -8,11 +8,11 @@
 
     useEffect(() => {
         const currentTheme=document.documentElement.getAttribute('data-theme');
-        setIsDarkMode(currentTheme === 'business');  
+        setIsDarkMode(currentTheme === 'dark');  
     },[]);
 
     const toggleTheme = () => {
-        const newTheme = isDarkMode ? 'cupcake' : 'business';
+        const newTheme = isDarkMode ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', newTheme);
         setIsDarkMode(!isDarkMode);
     };
