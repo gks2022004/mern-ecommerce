@@ -7,6 +7,7 @@ import { EditProduct } from "./pages/EditProduct";
 import { DeleteProduct } from "./pages/DeleteProduct";
 import CreateProduct from "./pages/CreateProduct";
 import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <>
-    
+    <Navbar/>
      <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/admin/*" element={<ProtectedRoute>
@@ -27,7 +28,7 @@ function App() {
   )
 }
 
-const AdminRoutes = () => {
+const AdminRoutes = () => {  
   return (
   <Routes>
    <Route path="/" element={<Admin/>}/>
