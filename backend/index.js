@@ -6,6 +6,7 @@ import { v2 as cloudinary } from "cloudinary";
 import multer from "multer";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
 import productRoute from "./routes/productRoute.js";
+import stripeRoute from "./routes/stripeRoute.js";
 
 config();
 
@@ -67,3 +68,5 @@ app.post("/upload", parser.single("image"), (req, res) => {
         res.status(500).send('Internal server error');
     }
     });
+
+    app.use('/stripe', stripeRoute);

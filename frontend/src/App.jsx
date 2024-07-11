@@ -9,6 +9,8 @@ import CreateProduct from "./pages/CreateProduct";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
+import Success from "./pages/Success";
+import Cancel from "./pages/Cancel";
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
      <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/cart" element={<Cart/>}/>
+      <Route path="/success" element={<Success/>}/>
+      <Route path="/cancel" element={<Cancel/>}/>
       <Route path="/admin/*" element={<ProtectedRoute>
       <AdminRoutes/>
       </ProtectedRoute>

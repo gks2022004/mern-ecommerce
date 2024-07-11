@@ -17,6 +17,32 @@ const Cart = () => {
 
 const totalPrice = cartItems.reduce((acc, item) => acc + item.priceIncents * item.quantity, 0);
 
+const handleCheckout = async () => {
+    const stripe = await stripePromise;
+
+    const transformedItems = cartItems.map(item => ({
+        name: item.name,
+        priceIncents: item.priceIncents,
+        quantity: item.quantity,
+        image: item.image
+    }));
+
+    try {
+        const response = await axios.post(`http://localhost:3000/stripe/create-checkout-session`, {
+            products: transformedItems
+        });
+
+        const { error } = await stripe.redirectToCheckout({
+            sessionId: response.data.id
+        });
+
+        if (error) {
+            console.error('Error during Stripe checkout redirection: ', error);
+        }
+    } catch (error) {
+        console.error('Checkout process error:', error);
+    }
+};
 
 
   return (
@@ -43,7 +69,7 @@ const totalPrice = cartItems.reduce((acc, item) => acc + item.priceIncents * ite
         
         <div className='text-center mt-8'>
             <p className='text-2xl font-semibold mb-4'>Total Price: ${(totalPrice / 100).toFixed(2)}</p>
-            <button  className='btn btn-accent'>Proceed to Checkout</button>
+            <button onClick={handleCheckout}  className='btn btn-accent'>Proceed to Checkout</button>
         </div>  
     </div>
   )
