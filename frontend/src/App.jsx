@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
+import Shop from "./pages/Shop";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
      <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/cart" element={<Cart/>}/>
+      <Route path="/shop" element={<Shop/>}/>
       <Route path="/success" element={<Success/>}/>
       <Route path="/cancel" element={<Cancel/>}/>
       <Route path="/admin/*" element={<ProtectedRoute>

@@ -30,8 +30,7 @@ const [product,setProduct] = useState([]);
             Welcome to <span className='text-teal-700'>our pathshala</span>
           </h1>
           <p className='py-6'>We have the best courses for you. </p>
-          <button className='btn btn-primary'>Shop</button>
-
+          <a href='/shop' className='btn btn-primary mt-4'>Shop</a>
         </div>
       </div>
     </div><ProductCard product={product} /></>

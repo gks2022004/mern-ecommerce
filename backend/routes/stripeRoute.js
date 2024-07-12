@@ -27,7 +27,7 @@ router.post('/create-checkout-session', async (req, res) => {
     const productDetailsSerialized = JSON.stringify(products.map(product => ({
         name: product.name,
         quantity: product.quantity,
-        price: product.priceInCents * 100,
+        price: product.priceIncents * 100,
     })));
 
     try {
