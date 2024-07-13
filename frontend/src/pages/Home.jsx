@@ -31,7 +31,7 @@ const [product,setProduct] = useState([]);
             Welcome to <span className='text-teal-700'>our pathshala</span>
           </h1>
           <p className='py-6'>We have the best courses for you. </p>
-          <Link to='/shop' className='btn btn-accent mt-4'>Shop</Link>
+          <Link to='/login' className='btn btn-accent mt-4'>Get Started</Link>
          
         </div>
       </div>
