@@ -2,9 +2,8 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 const isAuthenticated = () => {
-    // todo- implement login and register
-    //return !!localStorage.getItem("token");
-    return true;
+    return !!localStorage.getItem("token");
+  
 }
 
 const ProtectedRoute = ({ children }) => {

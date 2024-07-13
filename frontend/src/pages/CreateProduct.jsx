@@ -35,6 +35,15 @@ const CreateProduct = () => {
         }
     };
 
+
+    const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        }
+      };
+
     
 const uploadFile = async () => {
     if (!img) {
@@ -92,10 +101,10 @@ const uploadFile = async () => {
                 category
             };
     
-            await axios.post(`http://localhost:3000/product`, formData);
+            await axios.post(`http://localhost:3000/product`, formData,config);
     
             enqueueSnackbar('Product saved successfully', { variant: 'success' });
-            navigate('/admin');
+            navigate('/Admin');
         } catch (error) {
             console.error('Error:', error);
             enqueueSnackbar('Error saving product: ' + (error.response?.data?.message || error.message), { variant: 'error' });
@@ -110,7 +119,7 @@ const uploadFile = async () => {
     <div className='p-6 bg-base-100 flex justify-center items-center'>
     {loading && <Spinner/>}
     <div className='container max-w-lg shadow-lg rounded-lg p-5 bg-base-100'>
-        <Link to="/admin" className='flex justify-center items-center
+        <Link to="/Admin" className='flex justify-center items-center
         btn mb-4 w-12 py-2 px-4 text-sm rounded-xl'>Back</Link>
         <h1 className='text-3xl font-semibold my-4'>Create Product</h1>
         <div className='my-4'>

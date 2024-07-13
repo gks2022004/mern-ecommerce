@@ -19,6 +19,14 @@ export const EditProduct = () => {
       const { id } = useParams();
       const { enqueueSnackbar } = useSnackbar();
 
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        }
+      };
+
       useEffect(() => {
         setLoading(true);
         axios
@@ -45,7 +53,7 @@ export const EditProduct = () => {
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar("Product edited successfully", { variant: "success" });
-                navigate("/admin");
+                navigate("/Admin");
             })
             .catch((error) => {
                 setLoading(false);
@@ -56,10 +64,10 @@ export const EditProduct = () => {
         };
 
   return (
-    <div className='p-6 bg-gray-100 flex justify-center items-center'>
+    <div className='p-6 bg-base-100 flex justify-center items-center'>
         { loading && <Spinner/>}
         <div className='container max-w-lg shadow-lg rounded-lg p-5 bg-base-200'> 
-        <Link to="/admin" className='flex justify-center items-center
+        <Link to="/Admin" className='flex justify-center items-center
             btn mb-4 w-12 py-2 px-4 text-sm rounded-xl'>Back</Link>
              <h1 className='text-3xl font-semibold my-4'>Edit Product</h1>
              <div className='my-4'>

@@ -8,6 +8,7 @@ import { CloudinaryStorage } from "multer-storage-cloudinary";
 import productRoute from "./routes/productRoute.js";
 import stripeRoute from "./routes/stripeRoute.js";
 import subscriberRoute from "./routes/subscriberRoute.js";
+import { authRouter } from "./controllers/authControllers.js";
 
 config();
 
@@ -64,3 +65,4 @@ app.listen(process.env.PORT, () => {
 
 app.use('/stripe', stripeRoute); 
 app.use('/subscriber', subscriberRoute);
+app.use('/auth', authRouter);

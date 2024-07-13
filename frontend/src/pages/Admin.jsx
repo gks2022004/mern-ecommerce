@@ -26,7 +26,7 @@ const Admin = () => {
 
 
   return (
-    <div className='px-4 py-8 max-w-7xl bg-gray-500 mx-auto'>
+    <div className='px-4 py-8 max-w-7xl mx-auto'>
     
     <Stats/>
 
@@ -35,7 +35,7 @@ const Admin = () => {
      <thead>
        <tr>
         <th>
-           <Link to="/admin/product/create" 
+           <Link to="/Admin/product/create" 
                     className='bg-green-600 hover:bg-green-900 py-2 px-4 font-medium rounded-lg 
                                   shadow-md text-base-100'>
               Add item +                      
@@ -51,7 +51,7 @@ const Admin = () => {
 
       <tbody>
       {product.map((product, index) => (
-              <tr key={product._id} className='bg-white hover:bg-gray-300'>
+              <tr key={product._id} className='bg-base-100 hover:bg-base-300'>
                 <td>
                   <div className="avatar">
                   <div className="mask mask-squircle w-12 h-12">
@@ -65,10 +65,10 @@ const Admin = () => {
                 <td className='py-3 px-5'>{product.category}</td>
                 <td className='py-3 px-5'>
                   <div className='flex justify-center gap-x-1'>
-                    <Link to={`/admin/product/edit/${product._id}`} className='bg-orange-500 hover:bg-orange-900
+                    <Link to={`/Admin/product/edit/${product._id}`} className='bg-orange-500 hover:bg-orange-900
                      text-white py-2 px-4 font-medium rounded-l-lg text-sm'>Edit</Link>
 
-                    <Link to={`/admin/product/delete/${product._id}`} className='bg-red-500 hover:bg-red-900
+                    <Link to={`/Admin/product/delete/${product._id}`} className='bg-red-500 hover:bg-red-900
                      text-white py-2 px-4 font-medium rounded-r-lg text-sm'>Delete</Link>
                   </div>
                 </td>

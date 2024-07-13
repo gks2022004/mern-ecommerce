@@ -7,7 +7,7 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe("pk_test_51Pb6mRRoOiYKNEF2YHJtiqaqA8cvPJ2S2SEd5yZBMscb08Ejj8aw0R6lYNqND3pGtFeka1FuRi6Ju7eNvP9NCR9R00jYqZH4k2");
 
 const Cart = () => {
-  const { cartItems, decreaseCartItemQuantity, addToCart } = useCart();
+  const { cartItems, decreaseCartItemQuantity } = useCart();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 

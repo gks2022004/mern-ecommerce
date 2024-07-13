@@ -13,7 +13,7 @@ const Footer = () => {
     const handleSubscribe = async (e) => {
         e.preventDefault();
         try {
-          const response = await axios.post(`http://localhost:3000/subscriber`, { email });
+          const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/subscriber`, { email });
           enqueueSnackbar(`Subscription successful: ${response.data.email}`, { variant: 'success' });
           setEmail('');
         } catch (error) {
