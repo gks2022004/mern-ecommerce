@@ -3,7 +3,6 @@ import React, { useState, useEffect} from 'react'
 import { useSnackbar } from 'notistack';
 import { Link , useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
-import { config } from 'dotenv';
 import Spinner from '../components/Spinner';
 
 export const EditProduct = () => {
