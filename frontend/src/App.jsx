@@ -12,6 +12,7 @@ import Cart from "./pages/Cart";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import Shop from "./pages/Shop";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       }
      />
      </Routes>
+     <Footer/>
     </>
   )
 }

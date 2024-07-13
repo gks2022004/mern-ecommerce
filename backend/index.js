@@ -7,6 +7,7 @@ import multer from "multer";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
 import productRoute from "./routes/productRoute.js";
 import stripeRoute from "./routes/stripeRoute.js";
+import subscriberRoute from "./routes/subscriberRoute.js";
 
 config();
 
@@ -40,7 +41,8 @@ const parser = multer({ storage: storage });
 
 // Routes
 app.use('/product', productRoute);
-app.use('/stripe', stripeRoute); // Ensure this is correctly set up
+
+
 
 // Upload route
 app.post("/upload", parser.single("image"), (req, res) => {
@@ -59,3 +61,6 @@ app.post("/upload", parser.single("image"), (req, res) => {
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 });
+
+app.use('/stripe', stripeRoute); 
+app.use('/subscriber', subscriberRoute);
