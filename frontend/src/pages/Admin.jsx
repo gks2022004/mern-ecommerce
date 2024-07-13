@@ -12,7 +12,7 @@ const Admin = () => {
    useEffect(() => {
     setloading(true);
     axios
-    .get("http://localhost:3000/product")
+    .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/product`)
     .then((res) => {
      setProduct(res.data.data);
      setloading(false);

@@ -55,7 +55,7 @@ const uploadFile = async () => {
     data.append('image', img);
 
     try {
-        const uploadUrl = (`http://localhost:3000/upload`);
+        const uploadUrl = (`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/upload`);
         const res = await axios.post(uploadUrl, data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -101,7 +101,7 @@ const uploadFile = async () => {
                 category
             };
     
-            await axios.post(`http://localhost:3000/product`, formData,config);
+            await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/product`, formData,config);
     
             enqueueSnackbar('Product saved successfully', { variant: 'success' });
             navigate('/Admin');

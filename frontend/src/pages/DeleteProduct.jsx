@@ -25,7 +25,7 @@ export const DeleteProduct = () => {
    const handleDeleteProduct = () => {
       setLoading(true);
       axios
-        .delete(`http://localhost:3000/product/${id}`, config)
+        .delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/product/${id}`, config)
         .then(() => {
           setLoading(false);
           enqueueSnackbar("Product deleted successfully", { variant: "success" });

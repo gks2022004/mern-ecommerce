@@ -30,7 +30,7 @@ export const EditProduct = () => {
       useEffect(() => {
         setLoading(true);
         axios
-          .get(`http://localhost:3000/product/${id}`)
+          .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/product/${id}`)
           .then((res) => {
             setName(res.data.name);
             setPriceIncents(res.data.priceIncents);
@@ -49,7 +49,7 @@ export const EditProduct = () => {
         const data = { name, priceIncents, description, category };
         setLoading(true);
         axios
-            .put(`http://localhost:3000/product/${id}`, data, config)
+            .put(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/product/${id}`, data, config)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar("Product edited successfully", { variant: "success" });
