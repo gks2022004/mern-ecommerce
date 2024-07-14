@@ -6,7 +6,6 @@ const CartContext = createContext();
 // eslint-disable-next-line react-refresh/only-export-components
 export const useCart = () => useContext(CartContext);
 
-// eslint-disable-next-line react/prop-types
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState(() =>{
         const localData = localStorage.getItem('cartItems');
@@ -58,8 +57,6 @@ export const CartProvider = ({ children }) => {
         setCartItems([]);
         localStorage.removeItem('cartItems');
     };
-
-
 
 return (
 

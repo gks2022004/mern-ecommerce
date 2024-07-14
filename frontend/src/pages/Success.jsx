@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 
@@ -7,7 +8,7 @@ const Success = () => {
     useEffect(() => {
         console.log('Payment was successful, clearing cart');
         clearCart();
-    }, []);
+    }, [clearCart]);
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-base-100 text-base-content">
@@ -18,5 +19,5 @@ const Success = () => {
         </div>
     );
 };
-
+Success.displayName = 'Success';
 export default Success

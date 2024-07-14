@@ -7,9 +7,8 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe("pk_test_51Pb6mRRoOiYKNEF2YHJtiqaqA8cvPJ2S2SEd5yZBMscb08Ejj8aw0R6lYNqND3pGtFeka1FuRi6Ju7eNvP9NCR9R00jYqZH4k2");
 
 const Cart = () => {
-  const { cartItems, decreaseCartItemQuantity } = useCart();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { cartItems, decreaseCartItemQuantity,} = useCart();
+ 
 
   if (cartItems.length === 0) {
     return <div className='text-black text-3xl text-center my-72'>Your cart is empty.</div>;
@@ -18,8 +17,7 @@ const Cart = () => {
   const totalPrice = cartItems.reduce((acc, item) => acc + item.priceIncents * item.quantity, 0);
 
   const handleCheckout = async () => {
-    setLoading(true);
-    setError(null);
+  
     const stripe = await stripePromise;
 
     const transformedItems = cartItems.map(item => ({
@@ -40,22 +38,17 @@ const Cart = () => {
 
       if (error) {
         console.error('Error during Stripe checkout redirection: ', error);
-        setError('There was an error during the checkout process. Please try again.');
+        
       }
     } catch (error) {
       console.error('Checkout process error:', error);
-      setError('There was an error during the checkout process. Please try again.');
-    } finally {
-      setLoading(false);
-    }
+      
+    } 
   };
 
   return (
     <div className='p-4 mt-16 max-w-[1400px] mx-auto'>
       <h2 className='text-2xl font-semibold text-center my-6'>Shopping Cart</h2>
-
-      {error && <div className="text-red-500 text-center mb-4">{error}</div>}
-
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
         {cartItems.map((item, index) => (
           <div key={index} className='bg-base-200 rounded-lg shadow-lg p-4 flex flex-col'>
@@ -77,8 +70,8 @@ const Cart = () => {
 
       <div className='text-center mt-8'>
         <p className='text-2xl font-semibold mb-4'>Total Price: ${(totalPrice / 100).toFixed(2)}</p>
-        <button onClick={handleCheckout} className='btn btn-accent' disabled={loading}>
-          {loading ? 'Processing...' : 'Proceed to Checkout'}
+        <button onClick={handleCheckout} className='btn btn-accent'>
+        Proceed to Checkout
         </button>
       </div>
     </div>
